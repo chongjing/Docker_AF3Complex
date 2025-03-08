@@ -1,5 +1,8 @@
 # Docker_AF3Complex
- docker image for AF3Complex program
+ docker image for AF3Complex program. This docker image is for AF3Complex, an improved structural predictions of protein complexes based on AlphaFold3. Acknowledgement should be given to https://github.com/Jfeldman34/AF3Complex⁠ .
+
+Contact: xiachongjing[[AT]]gmail.com
+
  I have built a docker image for AF3Complex, you can use it from: `docker image pull af3complex:af3`, or build singularity image from my docker image.
 
 ## Step1: Clone AF3Complex repository
