@@ -1,18 +1,3 @@
-# Docker_AF3Complex
- docker image for AF3Complex program
- I have built a docker image for AF3Complex, you can use it from: `docker image pull af3complex:af3`, or build singularity image from my docker image.
-
-## Step1: Clone AF3Complex repository
-
-```bash
-git clone https://github.com/Jfeldman34/AF3Complex.git
-
-#please note there are several errors in original run_af3complex.py
-#I modified it, then used modified file for docker image
-```
-
-## Step2: Make a dockerfile
-```dockerfile
 # Copyright 2024 DeepMind Technologies Limited
 #
 # AlphaFold 3 source code is licensed under CC BY-NC-SA 4.0. To view a copy of
@@ -47,7 +32,7 @@ ENV PATH="/hmmer/bin:/alphafold3_venv/bin:$PATH"
 RUN pip3 install --upgrade pip
 
 # Install HMMER. Do so before copying the source code, so that docker can cache
-# the image layer containing HMMER. Alternatively, you could also install it
+# the image layer containing HMMER. Alternatively, you could also install it 
 # using `apt-get install hmmer` instead of bulding it from source.
 RUN mkdir /hmmer_build /hmmer ; \
     wget http://eddylab.org/software/hmmer/hmmer-3.4.tar.gz --directory-prefix /hmmer_build ; \
@@ -81,22 +66,3 @@ ENV XLA_PYTHON_CLIENT_PREALLOCATE=true
 ENV XLA_CLIENT_MEM_FRACTION=0.95
 
 CMD ["python3", "/app/AF3Complex/run_alphafold.py"]
-```
-
-## Step 3: Build the Docker Image for AF3Complex
-```bash
-# run this in the parental directory that contains ./AF3Complex subdirectory and the Dockerfile
-docker build -t af3complex:af3 .
-```
-
-## Step 4: Push Docker Image to Docker Hub
-```bash
-docker login
-docker tag af3complex chongjing518/af3complex:af3
-docker push chongjing518/af3complex:af3
-```
-
-## Step 5: Build Singularity Image from af3complex docker image
-```bash
-singularity build af3complex.sif docker://chongjing518/af3complex:af3
-```
