@@ -3,14 +3,14 @@
 
 Contact: xiachongjing[[AT]]gmail.com
 
- I have built a docker image for AF3Complex, you can use it from: `docker image pull af3complex:af3`, or build singularity image from my docker image.
+ I have built a docker image for AF3Complex, you can use it from: `docker pull chongjing518/af3complex:af3`, or build singularity image from my docker image.
 
 ## Step1: Clone AF3Complex repository
 
 ```bash
 git clone https://github.com/Jfeldman34/AF3Complex.git
 
-#please note there are several errors in original run_af3complex.py
+#please note there are several errors in original run_af3complex.py and run_intermediate.py
 #I modified it, then used modified file for docker image
 ```
 
